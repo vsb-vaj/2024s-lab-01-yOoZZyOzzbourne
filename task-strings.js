@@ -8,7 +8,7 @@
 
 // Your code:
 export const parametrize = (input) => {
-
+    return input.toLowerCase().split(' ').join('-')
 };
 
 // 2 =================================
@@ -19,7 +19,8 @@ export const parametrize = (input) => {
 
 // Your code:
 export const giveSentenceForPerson = (obj) => {
-
+    return `Hello ${obj.name} from ${obj.location}! 
+    It is nice to meet you! You look awesome for your ${obj.age}, young ${obj.position}!`
 };
 
 // 3 =================================
@@ -29,5 +30,16 @@ export const giveSentenceForPerson = (obj) => {
 
 // Your code:
 export const replace = (input) => {
-
+    return input.replace(/[aeio]/g, '*')
 };
+
+// console.log(parametrize("Javascript is the best"));
+// "javascript-is-the-best"
+console.log('parametrize: ',parametrize("Javascript is the best"));
+
+// giveSentenceForPerson({name: "Obi-wan", position: "Jedi", age: 40, location: "Starwars universe"})
+// ➞ Hello Obi-wan from Starwars universe! It is nice to meet you! You look awesome for your 40, young Jedi!
+console.log('giveSentenceForPerson: ',giveSentenceForPerson({name: "Obi-wan", position: "Jedi", age: 40, location: "Starwars universe"}));
+
+// replace("Hello Javascript") ➞ "H*ll* J*v*scr*pt"
+console.log('replace: ',replace("Hello Javascript"));
