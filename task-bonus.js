@@ -8,8 +8,10 @@
 
 // Your code:
 export const drawTriangle = (length = 5) => {
-  
-    // ... write code ...
+  for (let i = 1; i <= length; i++) {
+    console.log('* '.repeat(i).trim())
+  }
+  console.log('\n')
 };
 
 // 2#  ========== BONUS =======================
@@ -28,7 +30,10 @@ export const drawTriangle = (length = 5) => {
 
 // Your code:
 export const drawJavascriptWord = (word = "javascript") => {
-  // ... write code ...
+  for (let i = 0; i < word.length; i++) {
+    console.log('* '.repeat(word.length - i - 1) + word.substring(word.length - i - 1).toUpperCase().split('').join(' '))
+  }
+  console.log('\n')
 };
 
 
@@ -48,5 +53,24 @@ export const drawJavascriptWord = (word = "javascript") => {
 
 // Your code:
 export const getVehiclesAndTopSpeed = (vehicles) => {
-  
+  return vehicles.map(vehicle => ({
+    name: vehicle.name,
+    topSpeed: Math.max(...vehicle.measuredSpeeds)
+  }))
 };
+
+console.log('drawTriangle')
+drawTriangle(); // It will draw a triangle of 5 lines
+
+console.log('drawJavascriptWord')
+drawJavascriptWord(); // It will draw the specified pattern with the word "javascript"
+
+const vehicles = [
+  { name: "Executor Star Dreadnought", measuredSpeeds: [555, 545, 577, 600] },
+  { name: "T-47 Airspeeder", measuredSpeeds: [300, 311, 299, 350] },
+  { name: "AT-AT", measuredSpeeds: [20, 21, 20, 19] },
+];
+
+console.log('getVehiclesAndTopSpeed')
+const vehiclesTopSpeed = getVehiclesAndTopSpeed(vehicles);
+vehiclesTopSpeed.forEach(vehicle => console.log(vehicle));
